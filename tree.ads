@@ -11,19 +11,20 @@ package Tree is
 	function New_Tree return Tree;
 	procedure Insertion(T : in out Tree ; Word : in String);
 	procedure Search_And_Display(T : in Tree ; Letters : in String);
-    procedure Init_Tree(T : in out Tree; letter : in Character; occurrence : in Natural);
-
+    function Count_Occurrence(Word: in String; Letter: in Character) return Natural;
+    procedure Insertion_arbre(T: in out Tree; Word: in String; Letter : in Character);
 private
     
-    type Node;    
-    type Tree is access Node;
-
-    package Node_List is new Ada.Containers.Doubly_Linked_Lists(Node);
-    use Node_List;
-
-    type Node is record
+   --package Word_List is new Ada.Containers.Doubly_Linked_Lists(Natural);
+   type Node;
+   type Tree is access Node;
+   type Child_Tab is array(0..M) of Tree;
+ 
+   type Node is record
         letter : Character;
         occurrence : Natural;
-        next : Node_List;
-    end record;
+        --words : Word_List;
+        childs : Child_Tab;
+   end record;
+    
 end Tree;

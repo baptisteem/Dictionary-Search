@@ -1,3 +1,6 @@
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 
 package body Tree is
 
@@ -8,31 +11,43 @@ package body Tree is
 
     procedure Insertion(T : in out Tree; Word : in String) is
     begin
-        Init_Tree(T,'A',0);
+       Insertion_arbre(T,Word,'A');
     end;
 
-    procedure Init_Tree(T : in out Tree; letter : in Character; occurrence : in Natural) is
-    temp : Cursor;
+    procedure Insertion_arbre(T: in out Tree; Word: in String; Letter : in Character) is
+        cpt : Natural := 0;
     begin
-        for i in 0..M loop
-            T.next.append(new Node'(letter, occurrence, null));
-            if occurrence = 0 then
-                temp := T.next.first;
-            else
-                temp := temp.next; 
-            end if;
-
-            if letter = 'Z' then
-                return;
-            else
-                Init_Tree(temp.element,character'succ(letter),occurrence);
+        cpt := Count_Occurrence(Word,Letter);
+        if cpt <= M then 
+            if T.childs(cpt) = null then
+                T.childs(cpt) := new Node;
+                T.childs(cpt).letter := Letter;
+                T.childs(cpt).occurrence := cpt;
+             end if;
+             if Letter /= 'Z' then
+                Insertion_arbre(T.childs(cpt),Word,character'succ(Letter));
+             else
+                 null; --Add word in the list
+             end if;
+        end if;
+    end;
+    
+    -- Count how many "Letter" there is within "Word"
+    function Count_Occurrence(Word : in String; Letter : in Character) return Natural is
+        Cpt : Natural := 0;
+    begin
+        for i in 1..(Word'Length) loop
+            if Word(i) = Letter then
+                Cpt := Cpt+1;
             end if;
         end loop;
+
+        return Cpt;
     end;
 
     -- Create a new tree with only one root node
     function New_Tree return Tree is
-        T : Tree;
+        T : Tree := new Node;
     begin
         return T;
     end;

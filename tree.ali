@@ -1,0 +1,104 @@
+V "GNAT Lib v4.6"
+P SS ZX
+R nnnvnnnnnnnnnnnnnnnnnnnnnvnnnvnvnnnnnvnnnnnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U tree%b		tree.adb		8a852b55 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W interfaces%s		interfac.ads		interfac.ali
+
+U tree%s		tree.ads		b2875e9f EE NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.containers%s	a-contai.ads		a-contai.ali
+W ada.containers.doubly_linked_lists%s
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+
+D ada.ads		20070406091342 3ffc8e18
+D a-charac.ads		20070912115821 2d3ec45b
+D a-chlat1.ads		20070912115821 2825df20
+D a-contai.ads		20101025135029 61e5e089
+D a-cdlili.ads		20090409150019 8288c973
+D a-except.ads		20090727140100 0c711ac9
+D a-finali.ads		20090409150019 e5e85fa4
+D a-filico.ads		20090409150019 872dc219
+D a-inteio.ads		20070406091342 f64b89a4
+D a-ioexce.ads		20091130110856 8b9de6cd
+D a-stream.ads		20090409150019 2ca4ee37
+D a-string.ads		20070406091342 90ac6797
+D a-strmap.ads		20090409150019 9cb836fb
+D a-strunb.ads		20101220072657 e684739b
+D a-tags.ads		20101021101406 c7695348
+D a-textio.ads		20091028140912 386df5d4
+D a-tiinio.ads		20090409150019 aa04e5d6
+D a-unccon.ads		20070406091342 f9eb8f06
+D interfac.ads		20090409150019 f77d8799
+D i-cstrea.ads		20100622165701 1bd72c32
+D system.ads		20120503154647 23e1f70b
+D s-crtl.ads		20100617122610 ac77b159
+D s-exctab.ads		20090417131547 66e51330
+D s-ficobl.ads		20100909103250 443b9d66
+D s-finimp.ads		20090409150019 46853fe8
+D s-finroo.ads		20090409150019 dbb860c9
+D s-parame.ads		20091130110856 9c5d83fa
+D s-secsta.ads		20090707124243 eea35a36
+D s-soflin.ads		20090729085153 9414c974
+D s-stache.ads		20090417130712 596fc1b4
+D s-stalib.ads		20101021102512 c4241c00
+D s-stoele.ads		20090417130712 facd7d98
+D s-stoele.adb		20100617152355 afc5dc80
+D s-stratt.ads		20100909123135 aedef97e
+D s-traent.ads		20090417130712 5221ee41
+D s-unstyp.ads		20090409150019 6ae15c76
+D s-wchcon.ads		20090417130712 bfeb2e3d
+D tree.ads		20140326172335 d68be477
+D tree.adb		20140326173939 74acc0c9
+X 1 ada.ads
+16K9*Ada 19e8 38|1r6 2r5 3r6 39|1r6 1r23 2r6 2r31 3r6 3r33
+X 4 a-contai.ads
+16K13*Containers 24e19 38|3r10
+X 5 a-cdlili.ads
+43k24*Doubly_Linked_Lists 276e39 38|3w21
+X 9 a-inteio.ads
+18K13*Integer_Text_IO[17|45] 39|2w10 2r35
+X 12 a-string.ads
+16K13*Strings 35e16 38|1r10 2r9 39|3r10 3r37
+X 14 a-strunb.ads
+77K21*Unbounded 490e26 38|1w18 2r17 39|3w18 3r45
+X 16 a-textio.ads
+49K13*Text_IO 472e16 39|1w10 1r27
+264U14*Put_Line 39|30s18
+X 38 tree.ads
+5K9*Tree 30l5 30e9 39|5b14 55t4
+8i5*M{natural} 21r31 39|21r19
+10P14*Tree(19R9) 11r34 12r40 13r45 15r41 20c9 21r37 39|7r41 12r36 17r41 49r30
+. 50r13
+11V18*New_Tree{10P14} 39|49b14 53t8
+12U19*Insertion 12=29 12>47 39|12b15 15t8
+12p29 T{10P14} 39|12b25 14m24
+12s47 Word{string} 39|12b42 14r26
+13U19*Search_And_Display 13>38 13>52 39|7b15 10t8
+13p38 T{10P14} 39|7b34
+13s52 Letters{string} 39|7b47
+14V14*Count_Occurrence{natural} 14>31 14>48 39|20s16 36b14 46t8
+14s31 Word{string} 39|36b31 39r22 40r16
+14e48 Letter{character} 39|36b49 40r26
+15U15*Insertion_arbre 15=31 15>47 15>64 39|14s8 17b15 28s17 33t8
+15p31 T{10P14} 39|17b31 22r16 23r17 24r17 25r17 28r33
+15s47 Word{string} 39|17b47 20r33 28r47 30r27
+15e64 Letter{character} 39|17b64 20r38 24r41 27r17 28r67
+19R9 Node 20r24 23c9 28e14 39|23r38 50r25
+21A9 Child_Tab(10P14)<integer> 27r18
+24e9*letter{character} 39|24m31
+25i9*occurrence{natural} 39|25m31
+27a9*childs{21A9} 39|22r18 23m19 24r19 25r19 28m35
+X 39 tree.adb
+18i9 cpt{natural} 20m9 21r12 22r25 23r26 24r26 25r26 25r45 28r42
+37i9 Cpt{natural} 41m17 41r24 45r16
+39i13 i{integer} 40r21
+50p9 T{38|10P14} 52r16
+
