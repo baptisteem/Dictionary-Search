@@ -5,7 +5,6 @@ package body Tree is
 
     procedure Search_And_Display(T : in Tree; Letters : in String) is
     begin
-        null;
         Search_And_Display_arbre(T,Letters,'a');
     end;
 
@@ -13,11 +12,12 @@ package body Tree is
         cpt : Natural := 0;
     begin
         cpt := Count_Occurrence(Letters,Letter);
-        --Put_Line(Letter & " - " & natural'image(cpt));
         if T.childs(cpt) /= null then
+            --If we are not at the end we continue to go througt the tree
             if Letter /= 'z' then
                 Search_And_Display_arbre(T.childs(cpt),Letters,character'succ(Letter));
             else
+                --Use procedure display to display all words in the leaf
                 iterate(T.childs(cpt).words,display'access);   
             end if;     
         else
@@ -25,6 +25,7 @@ package body Tree is
         end if;
     end;
 
+    --Take a cursor to display a list of string
     procedure display(C : Cursor) is
         word : Unbounded_String;
     begin
@@ -41,6 +42,7 @@ package body Tree is
         cpt : Natural := 0;
     begin
         cpt := Count_Occurrence(Word,Letter);
+        --If the node doesn't exist yet we create it
         if cpt <= M then
             if T.childs(cpt) = null then
                 T.childs(cpt) := new Node;
@@ -49,10 +51,10 @@ package body Tree is
              end if;
              if Letter /= 'z' then
                 Insertion_arbre(T.childs(cpt),Word,character'succ(Letter));
+             --When we are at the end of the tree we add the word to the list
              else
                  --Add word to the list
-                 --Put_Line(Letter & " - " & natural'image(cpt) & " --> " & Word);
-                 T.words.Append(To_Unbounded_String(Word));
+                 T.childs(cpt).words.Append(To_Unbounded_String(Word));
              end if;
         end if;
     end;
