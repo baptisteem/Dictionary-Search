@@ -5,7 +5,7 @@ with Ada.Containers.Doubly_Linked_Lists;
 package Tree is
 
     --Max tree size
-   M : Natural := 5;
+   M : Natural := 10;
 
    --Package initialization to use string list
    package Word_List is new Ada.Containers.Doubly_Linked_Lists(Unbounded_String);

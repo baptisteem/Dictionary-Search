@@ -12,13 +12,13 @@ PYGAL_OK = True
 #if you don't get it no chart will be generated
 try:
     import pygal #Use to draw charts
-except ImportError, e:
+except ImportError:
     PYGAL_OK = False
     print("\nYou don't have the package Pygal to generate chart. Install it or no charts will be generated\n")
     pass
 
 PROGRAM = "./words"
-WORD_RANGE = [10000,50000,100000,250000,500000,750000,1000000]
+WORD_RANGE = [1000,5000,10000,20000,50000,100000]
 MAX_SIZE_WORD = 20
 
 # Display help menu
@@ -36,15 +36,6 @@ def display_help():
     print("-s, --max_size=20                Maximum word's size to test. Equal 20 by default")
     print()
 #----------------------------------------------------------------------
-
-
-# Create a random string from lowercase characters
-#-----------------------------------------------------------------------
-def string_generator(size):
-    return ''.join(random.choice(string.ascii_lowercase) for _ in range(size))
-#-----------------------------------------------------------------------
-
-
 
 #----------------- MAIN SCRIPT -----------------------------------------
 
@@ -71,12 +62,12 @@ tab_results = []
 
 for words_number in WORD_RANGE:
     tab_times = []
+    tab_words = [""]*words_number
     for i in range(1,MAX_SIZE_WORD):
     
         #Generate WORD_NUMBER words of i size
-        #When WORD_NUMBER is big this function could take a lot of time
-        tab_words = [string_generator(i) for _ in range (0,words_number)]
-        
+        tab_words = [tab_words[i]+random.choice(string.ascii_lowercase) for i in range(0,words_number)]
+
         #Create file to write words
         file_tmp = open("tmp.txt","w")
         for word in tab_words:
@@ -85,7 +76,8 @@ for words_number in WORD_RANGE:
         
         #Start the program
         start = time.time()
-        subprocess.call([PROGRAM,"<","tmp.txt",">","/dev/null"], shell=True);
+        #subprocess.call([PROGRAM,"<","tmp.txt",">","/dev/null"], shell=True)
+        subprocess.call(["./words < tmp.txt > /dev/null"], shell=True)
         end = time.time()
         tab_times.append((end - start) * 1000)
         os.remove("tmp.txt")
