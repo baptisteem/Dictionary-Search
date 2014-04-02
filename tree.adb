@@ -12,17 +12,19 @@ package body Tree is
         cpt : Natural := 0;
     begin
         cpt := Count_Occurrence(Letters,Letter);
-        if T.childs(cpt) /= null then
-            --If we are not at the end we continue to go througt the tree
-            if Letter /= 'z' then
-                Search_And_Display_arbre(T.childs(cpt),Letters,character'succ(Letter));
-            else
-                --Use procedure display to display all words in the leaf
-                iterate(T.childs(cpt).words,display'access);   
-            end if;     
-        else
-            return;
-        end if;
+        for i in 0..cpt loop
+         if T.childs(i) /= null then
+             --If we are not at the end we continue to go througt the tree
+             if Letter /= 'z' then
+                 Search_And_Display_arbre(T.childs(i),Letters,character'succ(Letter));
+             else
+                 --Use procedure display to display all words in the leaf
+                 iterate(T.childs(i).words,display'access);   
+             end if;     
+         else
+             return;
+         end if;
+        end loop;
     end;
 
     --Take a cursor to display a list of string
