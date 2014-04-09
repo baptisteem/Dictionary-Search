@@ -1,6 +1,7 @@
 with Ada.Text_IO, Tree;
 use Ada.Text_IO, Tree;
---with Ada.Unchecked_Deallocation;
+with Ada.Command_Line;
+use Ada.Command_Line;
 
 procedure Words is 
 	function Read_Words_File(File_Name: in String) return Tree.Tree is
@@ -22,7 +23,12 @@ procedure Words is
 	T : Tree.Tree;
 
 begin
-	T := Read_Words_File("american-english");
+    if Argument_Count /= 1 then 
+        Put_Line("Error : Please specify a file for dictionary");
+        Set_Exit_Status(Failure);
+        return;
+    end if;
+	T := Read_Words_File(Argument(1));
 	Put_Line("Please enter some letters: ");
 	while not End_Of_File(Standard_Input) loop
 		declare
