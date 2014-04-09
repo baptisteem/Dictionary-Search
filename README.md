@@ -12,4 +12,4 @@ First the dictionary is parsed thanks to a tree. After that, all research will b
 
 ### How to use it
 
-./words dictionaty.txt
+./words dictionary.txt
